@@ -87,50 +87,13 @@ pip install pandas urllib3 websocket-client prettytable
 from csmarapi.CsmarService import CsmarService
 ```
 
-如果你使用的是 conda 环境，例如：
-
-```bash
-conda activate paper312
-```
-
-可以通过以下命令检查：
+如果你使用的是 conda 环境，可以通过以下命令检查：
 
 ```bash
 python -c "from csmarapi.CsmarService import CsmarService; print('OK')"
 ```
 
 如果输出 `OK`，说明 SDK 已正确安装。
-
----
-
-## OpenClaw 环境问题说明
-
-这个 skill 最常见的问题不是代码本身，而是：
-
-> OpenClaw 调 skill 时使用的 Python 环境，不是你手动 `conda activate paper312` 后的环境。
-
-所以即使你在终端能运行：
-
-```bash
-python test_csmar.py
-```
-
-OpenClaw 仍然可能报错：
-
-```python
-ModuleNotFoundError: No module named 'csmarapi'
-```
-
-### 解决方法
-
-使用固定解释器路径的 shell 启动脚本，例如：
-
-```bash
-#!/bin/bash
-/opt/anaconda3/envs/paper312/bin/python /Users/yourname/.openclaw/skills/csmar-assistant/csmar_cli.py "$@"
-```
-
-这样 OpenClaw 调用 skill 时会强制使用正确的 conda 环境。
 
 ---
 
